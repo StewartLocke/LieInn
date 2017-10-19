@@ -1,0 +1,49 @@
+body, html, .container-fluid {
+  height: 100%;
+  padding: 0px;
+}
+
+h1 {
+	font-size: 4.5vmin;
+}
+
+.header {
+	height: 10vh;
+	background-color: Yellow;
+}
+
+.login {
+	text-align:right;
+	padding: 5%;
+	text-decoration: underline;
+	color: #0060B6;
+}
+
+.mainContent {
+	height: 75vh;
+	width: 100%;
+	background: url("Room1.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position:center center;
+	padding: 5%;
+}
+
+.booking {
+	background-color: yellow;
+	margin:10%;
+	padding: 5%;
+	float: right;
+	display: inline-block;
+	text-align: center;
+}
+
+.heading {
+	text-align: center;
+}
+
+.footer {
+	height: 15vh;
+	background-color: Yellow;
+}
+
