@@ -10,13 +10,16 @@ namespace SQLMethods
 {
     class Program
     {
-        String connectionString;
-        DataSet dataset;
+        static String connectionString= @"Data Source=JOHN\SQLEXPRESS;Initial Catalog = HotelDB; Integrated Security = True";
+        
         static void Main(string[] args)
         {
+            //NonQuery("SELECT * FROM Bookings");
+            DataSet ds =
+            Query("SELECT * FROM Bookings");
         }
 
-        private void NonQuery(String sqlNonQuery)
+        private static  void NonQuery(String sqlNonQuery)
         {
             try
             {
@@ -30,6 +33,7 @@ namespace SQLMethods
                     sqlConnection.Open();
                     sqlCommand.ExecuteNonQuery();
                     sqlConnection.Close();
+                    Console.WriteLine("Details Updated");
                 }
             }
             catch(SqlException e)
@@ -38,8 +42,9 @@ namespace SQLMethods
             }
         }
 
-        private DataSet Query(String sqlQuery)
+        private static DataSet Query(String sqlQuery)
         {
+            DataSet dataset = new DataSet();
             try
             {
                 using (SqlConnection sqlConnection = new SqlConnection(connectionString))
@@ -54,7 +59,7 @@ namespace SQLMethods
                     sqlCommand.CommandType = CommandType.Text;
                     SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand);
                     adapter.Fill(dataset);
-
+                    Console.WriteLine("Test");
                     return dataset;
                 }
             }
